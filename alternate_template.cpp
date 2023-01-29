@@ -46,7 +46,9 @@ typedef unsigned long int uint32;
 typedef long long int int64;
 typedef unsigned long long int  uint64;
 
-
+void solve(){
+	
+}
 /* clang-format on */
 
 /* Main()  function */
@@ -58,11 +60,12 @@ int main()
 	//freopen("output.txt","w",stdout);
 	#endif
 
-	// int tc;
-	// cin>>tc;
+	int tc;
+	cin>>tc;
 
-	// while(tc--){
-	     cout<<gcd(2,4)<<endl;
-	// }
+	while(tc--){
+		solve();
+		/* write code in solve function from now on*/
+	}
 	return 0;
 }
