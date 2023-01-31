@@ -47,7 +47,24 @@ typedef unsigned long int uint32;
 typedef long long int int64;
 typedef unsigned long long int  uint64;
 
-void solve(){
+/* adding custom functions for various tasks */
+
+unsigned long long calculateBitwiseOR(const vector<unsigned long long> &numbers)	//calculates the bitwise or of all numbers in a vector	
+{
+    unsigned long long result = 0;
+    for (auto num : numbers) {
+        result |= num;
+    }
+    return result;
+}
+
+unsigned long long getBitwiseOrResult(unsigned long long x, unsigned long long y)	//given two numbers x, y , it returns a number whose bitwise or with x gives y
+{
+    return y ^ x;
+}
+
+void solve()
+{
 	
 }
 /* clang-format on */
