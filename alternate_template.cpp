@@ -63,6 +63,21 @@ unsigned long long getBitwiseOrResult(unsigned long long x, unsigned long long y
     return y ^ x;
 }
 
+int next_biggest_even(int x) 	//pass in a number to return the next biggest even number
+{
+  if (x % 2 == 0) x += 2;
+  else x++;
+  return x;
+}
+
+int next_biggest_odd(int x) 	//pass in a number to return the next biggest odd number
+{
+  if (x % 2 == 0) x++;
+  else x += 2;
+  return x;
+}
+
+
 void solve()
 {
 	
@@ -81,7 +96,8 @@ int main()
 	int tc;
 	cin>>tc;
 
-	while(tc--){
+	while(tc--)
+	{
 		solve();
 		/* write code in solve function from now on*/
 	}
