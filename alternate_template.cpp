@@ -77,6 +77,15 @@ int next_biggest_odd(int x) 	//pass in a number to return the next biggest odd n
   return x;
 }
 
+int countDistinctCharacters(string s) {
+unordered_map<char, bool> m;
+for (char c : s) {
+if (m[tolower(c)]) continue;
+m[tolower(c)] = true;
+}
+return m.size();
+}
+
 
 void solve()
 {
