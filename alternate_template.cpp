@@ -86,6 +86,68 @@ m[tolower(c)] = true;
 return m.size();
 }
 
+int countFreq(string& pat, string& txt)
+{
+    int M = pat.length();
+    int N = txt.length();
+    int res = 0;
+ 
+    /* A loop to slide pat[] one by one */
+    for (int i = 0; i <= N - M; i++) {
+        /* For current index i, check for
+           pattern match */
+        int j;
+        for (j = 0; j < M; j++)
+            if (txt[i + j] != pat[j])
+                break;
+ 
+        // if pat[0...M-1] = txt[i, i+1, ...i+M-1]
+        if (j == M) {
+            res++;
+        }
+    }
+    return res;
+}
+
+int longestPalindromeSubseq(string s) {
+    int n = s.length();
+    vector<vector<int>> dp(n, vector<int>(n, 0));
+    for (int i = n - 1; i >= 0; i--) {
+        dp[i][i] = 1;
+        for (int j = i + 1; j < n; j++) {
+            if (s[i] == s[j]) {
+                dp[i][j] = dp[i + 1][j - 1] + 2;
+            } else {
+                dp[i][j] = max(dp[i + 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+    return dp[0][n - 1];
+}
+
+string smallest_substring(string s1, string s2) {
+    int len1 = s1.length();
+    int len2 = s2.length();
+    if (len1 == 0 || len2 == 0) return "";
+    unordered_map<char, int> char_count;
+    for (char c : s2) char_count[c]++;
+    int start = 0, end = 0, min_len = INT_MAX, count = char_count.size(), min_start = 0;
+    while (end < len1) {
+        char c = s1[end];
+        if (char_count.count(c) && --char_count[c] == 0) count--;
+        end++;
+        while (count == 0) {
+            if (end - start < min_len) {
+                min_len = end - start;
+                min_start = start;
+            }
+            c = s1[start];
+            if (char_count.count(c) && ++char_count[c] > 0) count++;
+            start++;
+        }
+    }
+    return min_len == INT_MAX ? "" : s1.substr(min_start, min_len);
+}
 
 void solve()
 {
