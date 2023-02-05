@@ -149,6 +149,14 @@ string smallest_substring(string s1, string s2) {
     return min_len == INT_MAX ? "" : s1.substr(min_start, min_len);
 }
 
+int sum_of_elements(int arr[], int n) {
+  int sum = 0;
+  for (int i = 0; i < n; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+
 void solve()
 {
 	
