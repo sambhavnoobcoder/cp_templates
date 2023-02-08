@@ -157,6 +157,20 @@ int sum_of_elements(int arr[], int n) {
   return sum;
 }
 
+std::vector<int> findPrimeFactors(int n)
+{
+    std::vector<int> primeFactors;
+    for (int i = 2; i <= n; i++)
+    {
+        while (n % i == 0)
+        {
+            primeFactors.push_back(i);
+            n /= i;
+        }
+    }
+    return primeFactors;
+}
+
 void solve()
 {
 	
